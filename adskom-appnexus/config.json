@@ -1,0 +1,14 @@
+{
+  "api_credentials": {
+  	"username": "adskom.api",
+    "password": "Adskom123!",
+    "download_folder": "/tmp",
+    "timezone": "Asia/Jakarta"
+  },
+  "db_credentials": {
+    "host": "localhost",
+    "user": "root",
+    "password": "dev",
+    "database": "adskom"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "api_credentials": {
+    "username": "",
+    "password": "",
+    "client_id": "5ade09ac76d04378b3d58268fd31596c",
+    "client_secret": "25b85705f26849c88bf9104d37e540af"
+  },
+  "db_credentials": {
+    "host": "localhost",
+    "user": "root",
+    "password": "dev",
+    "database": "adskom"
+  }
+}

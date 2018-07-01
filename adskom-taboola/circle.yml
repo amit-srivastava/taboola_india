@@ -1,0 +1,11 @@
+machine:
+  python:
+    version: 3.5.2
+
+dependencies:
+  pre:
+    - pip install pylint
+
+test:
+  post:
+    - pylint adskom_taboola -d missing-docstring,dangerous-default-value,logging-format-interpolation,broad-except

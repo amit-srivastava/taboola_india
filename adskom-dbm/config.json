@@ -1,0 +1,15 @@
+{
+  "api_credentials": {
+    "mail_server": "imap.gmail.com",
+    "email_username": "auto_reporting@adskom.com",
+    "email_password": "q8n6Eg65(M",
+    "email_subject": "Your Bid Manager Report Scheduled Report DBM India V1 is ready. ",
+    "download_folder": "/tmp"
+  },
+  "db_credentials": {
+    "host": "localhost",
+    "user": "root",
+    "password": "dev",
+    "database": "adskom"
+  }
+}

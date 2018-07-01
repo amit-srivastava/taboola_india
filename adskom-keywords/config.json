@@ -1,0 +1,13 @@
+{
+  "api_credentials": {
+    "log_folder": "/home/dev/Downloads/csv_logs",
+    "unique_log_folder": "/home/dev/Downloads/unique_csv_logs",
+    "processing_limit":100
+  },
+  "db_credentials": {
+    "host": "localhost",
+    "user": "root",
+    "password": "dev",
+    "database": "adskom"
+  }
+}

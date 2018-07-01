@@ -1,0 +1,15 @@
+{
+  "api_credentials": {
+    "mail_server": "imap.gmail.com",
+    "email_username": "<gmail username>",
+    "email_password": "<gmail password>",
+    "email_subject": "<email subject>",
+    "download_folder": "<attachment download folder>"
+  },
+  "db_credentials": {
+    "host": "localhost",
+    "user": "root",
+    "password": "dev",
+    "database": "adskom"
+  }
+}

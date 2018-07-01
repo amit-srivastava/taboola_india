@@ -1,0 +1,179 @@
+dev@dev:~/taboola_india/adskom-taboola$ pyvenv p3_env
+dev@dev:~/taboola_india/adskom-taboola$ source p3_env/bin/activate
+(p3_env) dev@dev:~/taboola_india/adskom-taboola$ pip install --upgrade pip
+Collecting pip
+  Using cached pip-9.0.1-py2.py3-none-any.whl
+Installing collected packages: pip
+  Found existing installation: pip 8.1.1
+    Uninstalling pip-8.1.1:
+      Successfully uninstalled pip-8.1.1
+Successfully installed pip-9.0.1
+(p3_env) dev@dev:~/taboola_india/adskom-taboola$ pip install .
+Processing /home/dev/taboola_india/adskom-taboola
+Collecting singer-python==0.2.1 (from adskom-taboola==0.0.1)
+  Using cached singer-python-0.2.1.tar.gz
+Collecting backoff==1.3.2 (from adskom-taboola==0.0.1)
+  Using cached backoff-1.3.2.tar.gz
+Collecting requests==2.12.4 (from adskom-taboola==0.0.1)
+  Using cached requests-2.12.4-py2.py3-none-any.whl
+Collecting python-dateutil==2.6.0 (from adskom-taboola==0.0.1)
+  Using cached python_dateutil-2.6.0-py2.py3-none-any.whl
+Collecting PyMySQL==0.7.11 (from adskom-taboola==0.0.1)
+  Using cached PyMySQL-0.7.11-py2.py3-none-any.whl
+Collecting mysqlclient==1.3.12 (from adskom-taboola==0.0.1)
+  Using cached mysqlclient-1.3.12.tar.gz
+Collecting six>=1.5 (from python-dateutil==2.6.0->adskom-taboola==0.0.1)
+  Using cached six-1.11.0-py2.py3-none-any.whl
+Installing collected packages: singer-python, backoff, requests, six, python-dateutil, PyMySQL, mysqlclient, adskom-taboola
+  Running setup.py install for singer-python ... done
+  Running setup.py install for backoff ... done
+  Running setup.py install for mysqlclient ... done
+  Running setup.py install for adskom-taboola ... done
+Successfully installed PyMySQL-0.7.11 adskom-taboola-0.0.1 backoff-1.3.2 mysqlclient-1.3.12 python-dateutil-2.6.0 requests-2.12.4 singer-python-0.2.1 six-1.11.0
+(p3_env) dev@dev:~/taboola_india/adskom-taboola$ adskom-taboola --config config.json
+  INFO Starting sync.
+  INFO Got an access token.
+  INFO Synced 12 allowed accounts.
+  INFO Inserting account_id : adskom-amuratechparkwest 
+  INFO Inserting account_id : adskom-amuratech-tenbkc-sc 
+  INFO Inserting account_id : adskom-droomcredit-sc 
+  INFO Inserting account_id : adskom-droomdiscovery-sc 
+  INFO Inserting account_id : adskom-droomin-sc 
+  INFO Inserting account_id : adskom-network 
+  INFO Inserting account_id : adskomindia-sc 
+  INFO Inserting account_id : adskomindia-droomeco-sc 
+  INFO Inserting account_id : adskomindia-droomhistory-sc 
+  INFO Inserting account_id : adskomindia-patanjali-sc 
+  INFO Inserting account_id : adskomindia-saipushp-puranikbuilders-sc 
+  INFO Inserting account_id : adskomindia-shapoorjipallonji-sc 
+  INFO Done syncing allowed accounts.
+  INFO Fetching campaign for account : adskom-amuratechparkwest
+  INFO Synced 2 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskom-amuratechparkwest 
+  INFO Inserting Campaign for advertiser_id : adskom-amuratechparkwest 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 0 campaign performance records.
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskom-amuratech-tenbkc-sc
+  INFO Synced 2 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskom-amuratech-tenbkc-sc 
+  INFO Inserting Campaign for advertiser_id : adskom-amuratech-tenbkc-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 0 campaign performance records.
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskom-droomcredit-sc
+  INFO Synced 2 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskom-droomcredit-sc 
+  INFO Inserting Campaign for advertiser_id : adskom-droomcredit-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 0 campaign performance records.
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskom-droomdiscovery-sc
+  INFO Synced 2 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskom-droomdiscovery-sc 
+  INFO Inserting Campaign for advertiser_id : adskom-droomdiscovery-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 4 campaign performance records.
+  INFO Inserting Campaign Performace for campaign_id : 805324 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 805324 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 805317 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 805317 and campaign_date = 2017-11-23
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskom-droomin-sc
+  INFO Synced 2 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskom-droomin-sc 
+  INFO Inserting Campaign for advertiser_id : adskom-droomin-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 4 campaign performance records.
+  INFO Inserting Campaign Performace for campaign_id : 805308 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 805308 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 805302 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 805302 and campaign_date = 2017-11-23
+  INFO Done syncing campaign_performance.
+  INFO Not fetching campaign for account : adskom-network
+  INFO Fetching campaign for account : adskomindia-sc
+  INFO Synced 7 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskomindia-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 4 campaign performance records.
+  INFO Inserting Campaign Performace for campaign_id : 395518 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 395518 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 622264 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 622264 and campaign_date = 2017-11-23
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskomindia-droomeco-sc
+  INFO Synced 2 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskomindia-droomeco-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-droomeco-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 0 campaign performance records.
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskomindia-droomhistory-sc
+  INFO Synced 2 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskomindia-droomhistory-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-droomhistory-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 4 campaign performance records.
+  INFO Inserting Campaign Performace for campaign_id : 718747 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 718749 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 718747 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 718749 and campaign_date = 2017-11-23
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskomindia-patanjali-sc
+  INFO Synced 4 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskomindia-patanjali-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-patanjali-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-patanjali-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-patanjali-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 0 campaign performance records.
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskomindia-saipushp-puranikbuilders-sc
+  INFO Synced 4 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskomindia-saipushp-puranikbuilders-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-saipushp-puranikbuilders-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-saipushp-puranikbuilders-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-saipushp-puranikbuilders-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 8 campaign performance records.
+  INFO Inserting Campaign Performace for campaign_id : 802483 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 802499 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 802483 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 802499 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 731183 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 731218 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 731218 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 731183 and campaign_date = 2017-11-23
+  INFO Done syncing campaign_performance.
+  INFO Fetching campaign for account : adskomindia-shapoorjipallonji-sc
+  INFO Synced 4 campaigns.
+  INFO Inserting Campaign for advertiser_id : adskomindia-shapoorjipallonji-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-shapoorjipallonji-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-shapoorjipallonji-sc 
+  INFO Inserting Campaign for advertiser_id : adskomindia-shapoorjipallonji-sc 
+  INFO Done syncing campaigns.
+  INFO Campaign Performance Date Range :: {'start_date': '2017-11-22', 'end_date': '2017-11-23'}
+  INFO Got 4 campaign performance records.
+  INFO Inserting Campaign Performace for campaign_id : 755004 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 757069 and campaign_date = 2017-11-22
+  INFO Inserting Campaign Performace for campaign_id : 755004 and campaign_date = 2017-11-23
+  INFO Inserting Campaign Performace for campaign_id : 757069 and campaign_date = 2017-11-23
+  INFO Done syncing campaign_performance.
+  (p3_env) dev@dev:~/taboola_india/adskom-taboola$
+  

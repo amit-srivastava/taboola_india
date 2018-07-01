@@ -1,0 +1,153 @@
+Amit, 17:13
+Hello Anom
+Anom, 17:19
+Hello Amit
+
+Amit, 17:19
+Reading document shared by you. Few queries are, shall I ask now?
+Anom, 17:21
+Yes Amit, what can i help you?
+
+Amit, 17:21
+In dsp_partner_campaign_demand_side_platforms table 
+there is feild taboola_dsp_id, what is this?
+Anom, 17:24
+We've been register Taboola Id in our DB Production, it's look like this 9C55DFD9420641B59CB88192B668D673
+
+so you can use that id in the table that need dsp_partner_campaign_id field
+
+but, the basic data type id is binary, so before you insert the data please convert it to binary like unhex("9C55DFD9420641B59CB88192B668D673") in sql query
+
+Amit, 17:27
+From where I get this value and when It need to be insert?
+Anom, 17:29
+oh i forgot to add this issue in the document, so, to get the taboola dsp id you can select "id" from "dsp_demand_side_platforms" table where "name" = "Taboola"
+
+so this id need to be insert when populate "dsp_partner_campaign_demand_side_platforms" & "fact_platform_campaigns"
+
+Are you need the dump sql to create all table that we used?
+
+Amit, 17:35
+That will be greate 
+Anom, 17:35
+Oke wait
+
+Anom, 17:40
+Done, please check again DSP Intergration document in Used Table Structure section
+
+Amit, 17:42
+Got it. Thanks.
+`id` binary(16) NOT NULL,
+Is it auto incrementenal field?
+Anom, 17:44
+it's UUID
+
+Amit, 17:45
+how to generate it?
+Anom, 17:51
+I don't know how in Python, but in laravel/php use https://github.com/webpatser/laravel-uuid
+
+
+
+then just use Uuid::generate(4);
+
+Amit, 17:53
+Which technology you are using for your application?
+Anom, 17:54
+The recent DSP integration is using Ruby
+
+Amit, 17:55
+and frontend ?
+Anom, 17:57
+The new dashboard (Campaign Report) backend using Laravel, and the front end using Vue.js, but the old dashboard is using Ruby on rails for front end and back end
+
+Amit, 17:59
+Okay. 
+Just for my knowledge why this taboola integration developed in python? 
+Anom, 18:01
+Oh, i don't know why for that case too 
+
+Amit, 18:01
+:)
+Amit, 10:51
+Hi Anom
+While inserting data in table fact_platform_campaigns its giving duplicate error since there is Primary key defined for unix_timestamp, dsp_partner_flight_id, dsp_partner_creative_id, dsp_demand_side_platform_id
+dsp_partner_flight_id, dsp_partner_creative_id are null 
+Anom, 11:06
+Oh oke Amit, wait
+
+Amit, 11:39
+I am waiting for your response
+Anom, 11:41
+Ok Amit, currently I'm having lunch now.. i will response you when I'm back, sorry to make you wait, maybe 15 minutes
+
+Amit, 11:43
+Okay. Enjoy your lunch (like)
+Anom, 12:04
+Thank you Amit. 
+Hmm I need to think about this Amit, can you wait a little bit more?
+
+Amit, 12:07
+I am finalizing code as  I removed primary keys from fact_platform_campaigns on my loacl
+Will update it if any further changes required.
+Anom, 12:10
+Ok Amit
+
+Amit, 12:11
+After final testing I will commit the code for your review
+
+Anom, 12:26
+Amit, do you remove all primary keys from fact_platform_campaigns in your local machine? or just specific primary keys?
+
+Amit, 12:29
+Removed all for testing. I think its need to add dsp_partner_campaign_id in composite key. so it should be like : `unix_timestamp`,`dsp_partner_campaign_id`,`dsp_partner_flight_id`,`dsp_partner_creative_id`,`dsp_demand_side_platform_id`
+Issue is unix_timestamp could be same while inserting bulk data since its 11 digit int value 
+So table structure could be : 
+CREATE TABLE `fact_platform_campaigns` (
+  `unix_timestamp` int(11) NOT NULL DEFAULT '0',
+  `action_date` date DEFAULT NULL,
+  `action_hour` int(11) DEFAULT NULL,
+  `dsp_partner_brand_id` binary(16) DEFAULT NULL,
+  `dsp_partner_campaign_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `dsp_partner_flight_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `dsp_partner_creative_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `dsp_demand_side_platform_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `impressions` int(11) DEFAULT NULL,
+  `clicks` int(11) DEFAULT NULL,
+  `last_view` int(11) DEFAULT NULL,
+  `last_click` int(11) DEFAULT NULL,
+  `spend` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`unix_timestamp`,`dsp_partner_campaign_id`,`dsp_partner_flight_id`,`dsp_partner_creative_id`,`dsp_demand_side_platform_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+Anom, 12:34
+So with those composite key will solve the insert issue?
+
+Amit, 12:38
+I am not sure hows other DSP works but Taboola API reports for depends on `action_date`  &  `dsp_partner_campaign_id`
+These two composite fields are unique for Taboola api
+Anom, 12:42
+Ok will test add `dsp_partner_campaign_id` to composite key in my machine
+
+Amit, 12:42
+May be action_date also required
+On my local table structure is
+CREATE TABLE `fact_platform_campaigns` (
+  `unix_timestamp` int(11) NOT NULL DEFAULT '0',
+  `action_date` date NOT NULL,
+  `action_hour` int(11) DEFAULT NULL,
+  `dsp_partner_brand_id` binary(16) DEFAULT NULL,
+  `dsp_partner_campaign_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `dsp_partner_flight_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `dsp_partner_creative_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `dsp_demand_side_platform_id` binary(16) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0',
+  `impressions` int(11) DEFAULT NULL,
+  `clicks` int(11) DEFAULT NULL,
+  `last_view` int(11) DEFAULT NULL,
+  `last_click` int(11) DEFAULT NULL,
+  `spend` decimal(15,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `fact_platform_campaigns`
+  ADD PRIMARY KEY (`unix_timestamp`,`dsp_partner_campaign_id`,`dsp_partner_flight_id`,`dsp_partner_creative_id`,`dsp_demand_side_platform_id`,`action_date`) USING BTREE;
+
+and its working fine 
